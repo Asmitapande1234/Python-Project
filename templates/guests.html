@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1 style="color:white"><b>Guests in the Hotel</b> </h1><br>
+	<table class="table table-striped" style=" background-color: white;opacity:70%;">
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Email</th>
+			<th>Count of occupants</th>
+			<th>Street Address</th>
+			<th>City</th>
+			<th>State</th>
+			<th>Country</th>
+			<th>Pincode</th>
+			<th></th>
+		</tr>
+		
+		{% for guest in guests %}
+		<tr>
+			<td style ="word-break:break-all;font-size: 15px;">{{guest.g_id}}</td>
+			<td style ="word-break:break-all;font-size: 15px;">{{guest.g_name}}</td>
+			<td style ="word-break:break-all;font-size: 15px;">{{guest.g_email}}</td>
+			<td style ="word-break:break-all;font-size: 15px;">{{guest.g_count}}</td>
+			<td style ="word-break:break-all;font-size: 15px;">{{guest.g_streetno | safe}}</td>
+			<td style ="word-break:break-all;font-size: 15px;">{{guest.g_city}}</td>
+			<td style ="word-break:break-all;font-size: 15px;">{{guest.g_state}}</td>
+			<td style ="word-break:break-all;font-size: 15px;">{{guest.g_country}}</td>
+			<td style ="word-break:break-all;font-size: 15px;">{{guest.g_pincode}}</td>
+
+		</tr>
+		{% endfor %}
+	</table>
+
+{% endblock %}

@@ -1,0 +1,201 @@
+{% extends 'layout.html' %}
+
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #333;
+        padding: 20px;
+    }
+
+    label {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    input[type="date"],
+    input[type="email"],
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #f1f1f1;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #3e8e41;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    .form-group input[type="text"] {
+        width: 100%;
+    }
+</style>
+
+{% block body %}
+    <h1 style="color:white;">Room no
+    {% if id[0] == 'R' %}
+        {{amenity.r_id}}
+    {% else %}
+        {{amenity.a_title}}
+    {% endif %}
+    </h1>
+
+    <small><p style="display: inline;color:white;font-size:20px;"><strong>ID:</strong>
+        {% if id[0] == 'R' %}
+        {{amenity.r_number}}
+        {% else %}
+        {{amenity.a_id}}
+        {% endif %}
+    </p></small>
+
+    <small><p style="display: inline;color:white;font-size:20px;"><strong>Type:</strong>
+        {% if id[0] == 'R' %}
+        {{amenity.r_type}}
+        {% else %}
+        {{amenity.a_type}}
+        {% endif %}
+    </p></small>
+
+    <small><p style="display: inline;color:white;font-size:20px;"><strong>Capacity:</strong>
+        {% if id[0] == 'R' %}
+        {{amenity.r_capacity}}
+        {% else %}
+        {{amenity.a_capacity}}
+        {% endif %}
+    </p></small>
+
+    <hr>
+    <hr>
+    {% from "includes/_formhelpers.html" import render_field %}
+    <form method="post" action="" style="color:white;display:flex;">
+    <div>
+    {% if id[0] == 'R' %}
+        <label for="check-in" style="margin-left:12px;">Check-in:</label>
+        <input type="date" id="check-in" name="check_in" autocomplete="off" style="height:28px;" placeholder="Select check-in date"><br><br>
+
+        <label for="check-out" style="margin-left:12px;">Check-out:</label>
+        <input type="date" id="check-out" name="check_out" autocomplete="off" style="height:28px;" placeholder="Select check-out date"><br><br>
+
+    {% else %}
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="check_in" autocomplete="off" style="width:250px;height:28px;" placeholder="Select booking date">
+        <br><br>
+    {% endif %}
+
+    {% if id[0] != 'R' %}
+    <div class="form-group col-lg-3">
+        <label for="check-in">G_id:</label>
+        <input type="text" name="g_id" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="Guest ID">
+    </div>
+    <div class="form-group col-lg-3">
+        <label for="check-in">Name:</label>
+        <input type="text" name="name" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="Enter guest name">
+    </div>
+    <div class="form-group col-lg-5">
+        <label for="check-in">Email:</label>
+        <input type="email" name="email" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="Enter email">
+    </div>
+    <div class="form-group col-lg-3">
+        <label for="check-in">Count:</label>
+        <input type="text" name="count" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="Number of Guests">
+    </div>
+    <div class="form-group col-lg-3">
+        <label for="check-in">City:</label>
+        <input type="text" name="city" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="Enter city">
+    </div>
+    </div>
+
+    <div style="margin-left: 300px;">
+    <div class="form-group">
+        <label for="check-in" style="margin-left:12px;">Street no:</label>
+        <input type="text" name="streetno" class="form-control" autocomplete="off" style="width:300px;height:28px;margin-left:12px;" placeholder="Street number">
+    </div>
+
+    <div class="form-group col-lg-3">
+        <label for="check-in">Country:</label>
+        <input type="text" name="country" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="Country">
+    </div>
+
+    <div class="form-group col-lg-3">
+        <label for="check-in">State:</label>
+        <input type="text" name="state" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="State">
+    </div>
+
+    <div class="form-group col-lg-3">
+        <label for="check-in">Pincode:</label>
+        <input type="text" name="pincode" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="Pincode">
+    </div>
+
+   
+    
+
+    {% else %}
+
+    <div class="form-group col-lg-3">
+        <label for="check-in">Name:</label>
+        <input type="text" name="name" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="Enter guest name">
+    </div>
+
+    <div class="form-group col-lg-3">
+        <label for="check-in">Count:</label>
+        <input type="text" name="count" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="Number of people">
+    </div>
+
+    <div class="form-group col-lg-5">
+        <label for="check-in">Email:</label>
+        <input type="email" name="email" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="Enter email">
+    </div>
+
+    <div class="form-group col-lg-3">
+        <label for="check-in">City:</label>
+        <input type="text" name="city" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="Enter city">
+    </div>
+    </div>
+
+    <div style="margin-left: 300px;">
+    <div class="form-group">
+        <label for="check-in" style="margin-left:12px;">Street no:</label>
+        <input type="text" name="streetno" class="form-control" autocomplete="off" style="width:300px;height:28px;margin-left:12px;" placeholder="Street number">
+    </div>
+
+    <div class="form-group col-lg-3">
+        <label for="check-in">Country:</label>
+        <input type="text" name="country" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="Country">
+    </div>
+
+    <div class="form-group col-lg-3">
+        <label for="check-in">State:</label>
+        <input type="text" name="state" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="State">
+    </div>
+
+    <div class="form-group col-lg-3">
+        <label for="check-in">Pincode:</label>
+        <input type="text" name="pincode" class="form-control" autocomplete="off" style="width:250px;height:28px;" placeholder="Pincode">
+    </div>
+
+    {% endif %}
+    <p style="margin-left: 30px;margin-top:40px;"><input type="submit" class="btn btn-primary" value="Book"></p>
+    </form>
+    </div>
+{% endblock %}

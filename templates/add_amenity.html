@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1 style="color:white; font-size:30px;margin-bottom: 30px;text-align:center;"><b>Add Facility</b></h1>
+
+	<form method="POST" action="" style="width:350px;margin-left:450px;">
+		<label for="id" style="color:white;">Id</label><br>
+		<input type="text" id="id" name="id" autocomplete="off"><br><br>
+
+		<label for="type" style="color:white;">Type</label><br>
+		<input type="text" id="type" name="type" autocomplete="off"><br><br>
+
+		<label for="status" style="color:white;">Status</label><br>
+		<input type="text" id="status" name="status" autocomplete="off"><br><br>
+
+		<label for="capacity" style="color:white;">Capacity</label><br>
+		<input type="text" id="capacity" name="capacity" autocomplete="off"><br><br>
+
+		<label for="title" style="color:white;">Title</label><br>
+		<input type="text" id="title" name="title" autocomplete="off"><br><br>
+
+		<label for="description" style="color:white;">Description</label><br>
+		<input type="text" id="description" name="description" autocomplete="off"><br>
+
+		<input class="btn btn-primary" type="submit" value="Add" style="background: blue; color:white;margin-left: 70px;margin-top: 10px;">
+
+	</form>
+{% endblock %}

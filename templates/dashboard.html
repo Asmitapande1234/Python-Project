@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1 style="color:white;"><b>Dashboard </b><br><br><small> <h4>Welcome {{session.username}}</h4></small></h1>
+	<hr>
+	<a class="btn btn-success" href="/admin_rooms">Rooms <img src="/static/peakpx2.jpg" style="width:250px;"></a>
+	<a class="btn btn-success" href="/admin_amenities" style="margin-left: 300px;">Facilities <img src="/static/peakpx3.jpg"style="width:250px;"></a>
+	<hr>
+	<a class="btn btn-danger" href="/guests" >Guests <img src="/static/peakpx4.jpg" style="width:250px;"></a>
+	<a class="btn btn-danger" href="/billings" style="margin-left: 300px;">Billings <img src="/static/peakpx5.jpg"style="width:250px;"></a>
+	<hr>
+	<a class="btn btn-success" href="/archived_guests">Past Guest<img src="/static/peakpx1.jpg" style="width:250px;"></a>
+{% endblock %}

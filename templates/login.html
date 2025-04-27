@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h1 style="color:white; font-size:30px;margin-bottom: 50px;text-align:center;"><b>Login</b></h1>
+
+	<form action="" method="POST" style="width:300px;margin-left:420px;">
+		<div class="form-group" style="color:white">
+			<label>Username</label>
+			<input type="text" name="username" autocomplete="off" class="form-control" value={{request.form.username}} >
+		</div>
+
+		<div class="form-group" style="color:white">
+			<label>Password</label>
+			<input type="password" name="password" autocomplete="off" class="form-control" value={{request.form.password}} >
+		</div>
+
+		<button type="submit" class="btn btn-primary" style="margin-left: 110px;margin-top: 15px;">Submit</button>
+	</form>
+{% endblock %}

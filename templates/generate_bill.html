@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1>Bill for Guest ID: 
+		<small> {{guest.g_id}}</small> 
+		&nbsp; 
+		<small> {{guest.g_name}} </small>
+	</h1>
+
+	<table class="table table-striped">
+		<tr>
+			<th>Booking ID</th>
+			<th>Room ID</th>
+			<th>Amenity ID</th>
+			<th>Check In Date</th>
+			<th>Check Out Date</th>
+			<th>Type</th>
+			<th>Charges</th>
+
+		</tr>
+		<tr>
+		<td>{{bookings.b_id}}</td>
+
+		{% if bookings.r_id == 0 or bookings.r_id == '0' %}
+			<td>N.A.</td>
+		{% else %}
+			<td>{{bookings.r_id}}</td>
+		{% endif %}
+
+		{% if bookings.a_id == 0 or bookings.a_id == '0' %}
+			<td>N.A.</td>
+			{% else %}
+			<td>{{bookings.a_id}}</td>
+			{% endif %}
+
+			<td>{{bookings.st}}</td>
+			<td>{{bookings.et}}</td>
+			<td>{{bookings.f_type}}</td>
+			<td>{{bookings.f_cost}}</td>
+
+		</tr>
+		
+	</table>
+    <p style="text-align: right;"><strong>Total Charges: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>{{total}}&emsp;&emsp;&emsp;&emsp;</p>
+
+{% endblock %}

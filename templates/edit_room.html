@@ -1,0 +1,20 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1 style="color:white; font-size:30px;margin-bottom: 50px;text-align:center;"><b>Edit Room <small>ID: {{id}}</small></b></h1>
+
+	<form method="POST" action="" style="width:350px;margin-left:450px;">
+
+		<label for="type" style="color:white;">Type</label><br>
+		<input type="text" id="type" name="type" autocomplete="off"><br><br>
+
+		<label for="capacity" style="color:white;">Capacity</label><br>
+		<input type="text" id="capacity" name="capacity" autocomplete="off"><br><br>
+
+		<label for="status" style="color:white;">Status</label><br>
+		<input type="text" id="status" name="status" autocomplete="off"><br><br>
+
+		<input class="btn btn-primary" type="submit" value="Edit" style="background: blue; color:white;margin-left: 70px;margin-top: 15px;">
+	</form>
+		
+{% endblock %}

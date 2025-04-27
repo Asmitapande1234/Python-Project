@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1 style="color:white;margin-top:100px;"><b>Generate Bill for Guest</b></h1>
+
+	<form method="POST" action="">
+		<div class="form-group">
+			<label style="color:white;font-size: 25px;">Guest-id:</label>
+			<input type="text" name="g_id" class="form-control" autocomplete="off" style="width:200px">
+		</div>
+	
+		<p><input type="submit" class="btn btn-success" value="Generate Bill"></p>
+	</form>
+	
+{% endblock %}

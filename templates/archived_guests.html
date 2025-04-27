@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<h1 style="color:white"><b>Archived Guests / Past Billings</b></h1><br>
+	<table class="table table-striped" style="background-color: white; opacity: 70%;">
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Room Number</th>
+			<th>Check-In</th>
+			<th>Check-Out</th>
+			<th>Total Amount</th>
+			<th>Billing Date</th>
+		</tr>
+
+		{% for guest in guests %}
+		<tr>
+			<td style="word-break: break-all; font-size: 15px;">{{ guest.id }}</td>
+			<td style="word-break: break-all; font-size: 15px;">{{ guest.name }}</td>
+			<td style="word-break: break-all; font-size: 15px;">{{ guest.room_number }}</td>
+			<td style="word-break: break-all; font-size: 15px;">{{ guest.check_in }}</td>
+			<td style="word-break: break-all; font-size: 15px;">{{ guest.check_out }}</td>
+			<td style="word-break: break-all; font-size: 15px;">₹{{ guest.total_amount }}</td>
+			<td style="word-break: break-all; font-size: 15px;">{{ guest.billing_date }}</td>
+		</tr>
+		{% endfor %}
+	</table>
+{% endblock %}
